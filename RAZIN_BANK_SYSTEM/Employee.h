@@ -22,24 +22,11 @@ public:
 	void setSalary(double salary) {
 
 		while (!Validation::isValidSalary(salary)) {
-			cout << "Error: Min Salary $5000!\n";
-			cout << "Re-enter Salary: ";
+			cout << "\n [Error] Min Salary $5000!\n";
+			cout << "\n Re-enter Salary: ";
 			cin >> salary;
 		}
 		this->salary = salary;
-		//cout << "\nSalary set successfully: $" << this->salary << endl;
-
-		/*if (Validation::isValidSalary(salary)) {
-			this->salary = salary;
-			cout << "Salary set successfully: $" << this->salary << endl;
-		}
-		else
-		{
-			cout << "Error: Min Salary $5000!\n";
-			cout << "Re-enter Salary: ";
-			cin >> salary;
-			cout << "Salary set successfully: $" << this->salary << endl;
-		}*/
 	}
 
 	double getSalary() {
@@ -54,9 +41,7 @@ public:
 	void display() {
 		Person::display();
 		cout << "\n\tSalary: $" << this->salary << endl;
-	}
-
- 
+	} 
 };
 
 static vector<Employee> AllEmployees;
