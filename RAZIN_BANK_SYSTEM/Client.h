@@ -31,24 +31,11 @@ public:
 
 	void setBalance(double balance) {
 		while (!Validation::isValidBalance(balance)) {
-			cout << "Error: Min Balance $1500!\n";
-			cout << "Re-enter Balance: ";
+			cout << "\n [Error] Min Balance $1500!\n";
+			cout << "\n Re-enter Balance: ";
 			cin >> balance;
 		}
 		this->balance = balance;
-		//cout << "Balance set successfully: $" << this->balance << endl;
-
-		/*if (Validation::isValidBalance(balance)) {
-			this->balance = balance;
-			cout << "Balance set successfully: $" << this->balance << endl;
-		}
-		else
-		{
-			cout << "Error: Min Balance $1500!\n";
-			cout << "Re-enter Balance: ";
-			cin >> balance;
-			cout << "Balance set successfully: $" << this->balance << endl;
-		}*/
 	}
 
 	bool getStatus() {
