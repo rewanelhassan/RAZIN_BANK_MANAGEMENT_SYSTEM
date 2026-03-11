@@ -20,7 +20,6 @@ public:
 	}
 
 	void setSalary(double salary) {
-
 		while (!Validation::isValidSalary(salary)) {
 			cout << "\n [Error] Min Salary $5000!\n";
 			cout << "\n Re-enter Salary: ";
@@ -41,7 +40,39 @@ public:
 	void display() {
 		Person::display();
 		cout << "\n\tSalary: $" << this->salary << endl;
-	} 
+	}
+
+     void addClient(Client& c) {
+	AllClients.push_back(c);
+	}
+
+	Client* searchClient(int id) {
+		for (int i = 0; i < AllClients.size(); i++) {
+			if (AllClients[i].getId() == id)
+				return &AllClients[i];
+		}
+		return nullptr;
+	}
+
+	void listClient() {
+		for (int i = 0; i < AllClients.size(); i++) {
+			AllClients[i].display();
+			cout << "\n-----------------------------------\n";
+		}
+	}
+
+	void editClient(int id, string name, string password, double balance) {
+		for (int i = 0; i < AllClients.size(); i++) {
+			if (AllClients[i].getId() == id) {
+				AllClients[i].setName(name);
+				AllClients[i].setPassword(password);
+				AllClients[i].setBalance(balance);
+				cout << "\n [*] Client data updated successfully";
+				return;
+			}
+		}
+		cout << "\n [!] Client with ID " << id << " not found.";
+	}
 };
 
 static vector<Employee> AllEmployees;
