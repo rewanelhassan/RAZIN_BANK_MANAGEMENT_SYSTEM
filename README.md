@@ -23,3 +23,12 @@ A comprehensive Financial Management System developed in C++ using Object-Orient
 * Client.h / Employee.h / Admin.h: Derived classes with specific roles.
 * BankManager.h: The central authority of the system.
 * Screens.h: Handles the console UI and application flow.
+
+### **👥 Contributors:
+
+This project was a collaborative effort by:
+
+* **[Rewan El Hassan](https://github.com/rewanelhassan)** - Software Engineering Student @ Tanta University.
+* **[Zeinab Ayman](https://github.com/Zeinab304)** - Software Engineering Student @ Tanta University.
+
+
