@@ -1,0 +1,100 @@
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS
+#define NOMINMAX
+#include<Windows.h>
+#include"BankManagerManager.h"
+#include"ClientManager.h"
+#define new_page system("cls")
+class Screens
+{
+public:
+	static void bankName() {
+		new_page;
+		system("color 87");
+		cout << "\n\n\n\n";
+		cout << "\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n" << endl;
+		cout << "\n\t\t\t\t\t   _____                _____    _____    _   _ " << endl;
+		cout << "\t\t\t\t\t  |  __ \\      /\\      |___  |  |_   _|  | \\ | |" << endl;
+		cout << "\t\t\t\t\t  | |__) |    /  \\        / /     | |    |  \\| |" << endl;
+		cout << "\t\t\t\t\t  |  _  /    / /\\ \\      / /      | |    | . ` |" << endl;
+		cout << "\t\t\t\t\t  | | \\ \\   / ____ \\    / /__    _| |_   | |\\  |" << endl;
+		cout << "\t\t\t\t\t  |_|  \\_\\ /_/    \\_\\  /_____|  |_____|  |_| \\_|" << endl;
+		cout << "\n\n\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n" << endl;
+		cout << "\t\t\t\t\t          THE FUTURE OF BANKING SYSTEMS          " << endl;
+		cout << "\t\t\t\t\t      Created by: Eng. Zeinab & Eng. Rewan        " << endl;
+		cout << "\n\n\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+		cout << "\n\n\n";
+		system("pause");
+	}
+	static void welcome() {
+		new_page;
+		int t = 100;
+		cout << "\n\n\n";
+		cout << "\t\t\t     __          __  ______  _        _____   ____   __  __  _____ " << endl;
+		Sleep(t);
+		cout << "\t\t\t     \\ \\        / / |  ____|| |      / ____| / __ \\ |  \\/  ||  ___|" << endl;
+		Sleep(t);
+		cout << "\t\t\t      \\ \\  /\\  / /  | |__   | |     | |     | |  | || \\  / || |__  " << endl;
+		Sleep(t);
+		cout << "\t\t\t       \\ \\/  \\/ /   |  __|  | |     | |     | |  | || |\\/| ||  __| " << endl;
+		Sleep(t);
+		cout << "\t\t\t        \\  /\\  /    | |____ | |____ | |____ | |__| || |  | || |____" << endl;
+		Sleep(t);
+		cout << "\t\t\t         \\/  \\/     |______||______| \\_____| \\____/ |_|  |_||______|" << endl;
+		Sleep(t);
+
+		cout << "\n\n\n\t\t\t\t\t           ========= TO =========\n" << endl;
+		Sleep(t);
+		cout << "\n\t\t\t\t\t    _____            _____  _____  _   _ " << endl;
+		Sleep(t);
+		cout << "\t\t\t\t\t   |  __ \\    /\\    |___  ||_   _|| \\ | |" << endl;
+		Sleep(t);
+		cout << "\t\t\t\t\t   | |__) |  /  \\      / /   | |  |  \\| |" << endl;
+		Sleep(t);
+		cout << "\t\t\t\t\t   |  _  /  / /\\ \\    / /    | |  | . ` |" << endl;
+		Sleep(t);
+		cout << "\t\t\t\t\t   | | \\ \\ / ____ \\  / /__  _| |_ | |\\  |" << endl;
+		Sleep(t);
+		cout << "\t\t\t\t\t   |_|  \\_/_/    \\_\\/_____||_____||_| \\_|" << endl;
+		Sleep(t);
+
+		cout << "\n\n\t\t\t\t\t         --- FINANCIAL SYSTEM v1.0 ---" << endl;
+		Sleep(t);
+		cout << "\t\t\t\t\t_______________________________________________" << endl;
+		Sleep(t);
+		cout << "\n\n\n";
+		system("pause");
+	}
+
+	static void loginOptions() {
+		new_page;
+		cout << "------------------------------------\n";
+		cout << "           Login Options            \n";
+		cout << "------------------------------------\n";
+		cout << "\n   Please select your login type:\n";
+		cout << "\n   [1] Login as Admin";
+		cout << "\n   [2] Login as Employee";
+		cout << "\n   [3] Login as Client";
+		cout << "\n   [4] Exit";
+		cout << "\n   Please enter your choice (1-4): ";
+	}
+	static int loginAs() {
+		int choice;
+		cin >> choice;
+		return choice;
+	}
+
+	static void invalid(int c) {
+		while (c < 1 || c > 4) {
+			cout << "\n\t [!] Invalid choice. Please enter a number between 1 and 4: ";
+			cin >> c;	
+		}
+	}
+	static void logout() {
+		new_page;
+		cout << "\n [*] Thanks for your time ,Goodbye (*^_^*)\n\n";
+	}
+
+
+};
+
