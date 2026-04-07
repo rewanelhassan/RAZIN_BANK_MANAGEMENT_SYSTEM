@@ -95,6 +95,119 @@ public:
 		cout << "\n [*] Thanks for your time ,Goodbye (*^_^*)\n\n";
 	}
 
+    static void loginSystem(int type){
+	int attempts = 0;
+	while (attempts < 3) {
+		cout << "\n [~] Enter ID: ";
+		int id;
+		cin >> id;
+		cout << "\n [~] Enter Password: ";
+		string password;
+		cin >> password;
+
+		switch (type)
+		{
+			case 1:
+				if (BankManagerManager::login(id, password))
+				{
+					BankManager* bm = BankManager::getManager();
+					while (BankManagerManager::BankManagerOptions(bm));
+					cout << "\n\n";
+					system("pause");
+					return;
+				}
+				else if (Admin* admin = AdminManager::login(id, password)) {
+					while (AdminManager::AdminOptions(admin));
+					cout << "\n\n";
+					system("pause");
+					return;
+				}
+				break;
+			case 2:
+				if (Employee* employee = EmployeeManager::login(id, password)) {
+					while (EmployeeManager::employeeOptions(employee));
+					cout << "\n\n";
+					system("pause");
+					return;
+				}
+				break;
+			case 3:
+				if (Client* client = ClientManager::login(id, password)) {
+					while (ClientManager::clientOptions(client));
+					cout << "\n\n";
+					system("pause");
+					return;
+				}
+				break;
+		}
+		attempts++;
+		cout << "\n [!] Invalid ID or Password, " << (3 - attempts) << " attemps remain!\n";
+		}
+		cout << "\n\n\n\n";
+		system("pause");
+		cout << "\n [!!!] Too many failed attempts. Access Denied.\n";
+		logout();
+		return;
+	}
+
+	static void loginScreen(int c) {
+		switch (c) {
+		case 1:
+			new_page;
+			cout << "-------------------------------------------\n";
+			cout << "                Admin Login                \n";
+			cout << "-------------------------------------------\n";
+			loginSystem(1);
+			break;
+		case 2:
+			new_page;
+			cout << "------------------------------------\n";
+			cout << "         Employee Login             \n";
+			cout << "------------------------------------\n";
+			loginSystem(2);
+			break;
+		case 3:
+			new_page;
+			cout << "------------------------------------\n";
+			cout << "           Client Login              \n";
+			cout << "------------------------------------\n";
+			loginSystem(3);
+			break;
+		case 4:
+			logout();
+			 break;
+		default:
+			cout << "\n\t [!] Invalid choice.";
+			break;
+		}
+	}
+
+	static void getAllData() {
+		FilesHelper::getClients();
+		FilesHelper::getEmployees();
+		FilesHelper::getAdmins();
+		int lastClient = FilesHelper::getLast("lastIdClient.txt");
+		int lastAdmin = FilesHelper::getLast("lastIdAdmin.txt");
+		int lastEmployee = FilesHelper::getLast("lastIdEmployee.txt");
+		Person::idCounter = max({ lastClient ,lastAdmin ,lastEmployee });
+		BankManager *BM = BankManager::getManager();
+	}
+
+	static void runApp() {
+		getAllData();
+		bankName();
+		welcome();
+		while (true) { 
+			loginOptions();
+			int choice = loginAs();
+			invalid(choice);
+			if (choice == 4) {
+				logout();
+				break;
+			}
+			loginScreen(choice); 
+		}
+	}
 
 };
 
