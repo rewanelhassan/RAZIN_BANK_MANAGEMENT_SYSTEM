@@ -30,12 +30,6 @@ public:
 	}
 
 	void setName(string name) {
-		while (!Validation::isValidName(name)) {
-			cout << "\n[Error] invalid name!\n";
-			cout << "\n[~] Re-enter: ";
-			cin >> name;
-			cin.ignore();
-		}
 		this->name = name;
 	}
 
